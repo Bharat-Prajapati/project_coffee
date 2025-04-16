@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Coffie Shop</string>
+    <string name="snap">The best grain,The finest roast\nThe powerful flavor</string>
+    <string name="get_started">Get Started</string>
+    <string name="choice_your">Choice your\n Favourite Coffee</string>
+    <string name="cart">Cart</string>
+    <string name="favourite">Favourite</string>
+    <string name="profile">Profile</string>
+    <string name="search_anything">Search anything.....</string>
+</resources>
