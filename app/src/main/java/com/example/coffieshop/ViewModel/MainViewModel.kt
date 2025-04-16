@@ -21,4 +21,8 @@ class MainViewModel: ViewModel() {
     fun loadPopCoffees(): LiveData<MutableList<ItemsModel>>{
         return repository.loadPopCoffees()
     }
+
+    fun loadItemList(categoryId: String): LiveData<MutableList<ItemsModel>>{
+        return repository.loadItemList(categoryId)
+    }
 }

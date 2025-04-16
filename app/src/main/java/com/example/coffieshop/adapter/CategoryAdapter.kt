@@ -1,11 +1,16 @@
 package com.example.coffieshop.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffieshop.Domains.CategoryModel
 import com.example.coffieshop.R
+import com.example.coffieshop.activities.ItemListActivity
 import com.example.coffieshop.databinding.ViewholderCategoryBinding
 
 class CategoryAdapter(private val items: MutableList<CategoryModel>, private val context: Context): RecyclerView.Adapter<CategoryAdapter.CatViewHolder>() {
@@ -23,11 +28,20 @@ class CategoryAdapter(private val items: MutableList<CategoryModel>, private val
     override fun onBindViewHolder(holder: CategoryAdapter.CatViewHolder, position: Int) {
         val item = items[position]
         holder.binding.titleCat.text = item.title
+
         holder.binding.root.setOnClickListener {
             lastSelectedPosition = selectedPosition
             selectedPosition = position
             notifyItemChanged(lastSelectedPosition)
             notifyItemChanged(selectedPosition)
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                val intent = Intent(context, ItemListActivity::class.java)
+                intent.putExtra("id", item.id.toString())
+                intent.putExtra("title", item.title)
+                ContextCompat.startActivity(context, intent, null)
+
+            }, 500)
         }
 
         if (selectedPosition == position){

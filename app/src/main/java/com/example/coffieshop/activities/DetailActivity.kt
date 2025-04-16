@@ -46,7 +46,6 @@ class DetailActivity : AppCompatActivity() {
             .into(binding.coffeeImage)
 
         binding.backBtn.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
