@@ -35,6 +35,20 @@ class MainActivity : AppCompatActivity() {
         initBanner()
         initCategory()
         initPopCoffees()
+        initBottom()
+    }
+
+    private fun initBottom() {
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.cart -> {
+                    startActivity(Intent(this, CartActivity::class.java))
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 
     private fun initCategory() {

@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.coffieshop.Domains.ItemsModel
+import com.example.coffieshop.Helper.ManageCart
 import com.example.coffieshop.activities.DetailActivity
 import com.example.coffieshop.databinding.ViewholderPopcoffeesBinding
 
 class PopularCoffeesAdapter(private val items: MutableList<ItemsModel>, private val context: Context)
     :RecyclerView.Adapter<PopularCoffeesAdapter.PopViewHolder>(){
+
     class PopViewHolder(val binding: ViewholderPopcoffeesBinding): RecyclerView.ViewHolder(binding.root)
+
+    private val manageCart = ManageCart()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopViewHolder {
         val binding = ViewholderPopcoffeesBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -33,6 +37,10 @@ class PopularCoffeesAdapter(private val items: MutableList<ItemsModel>, private 
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("item", item)
             context.startActivity(intent)
+        }
+
+        holder.binding.addCart.setOnClickListener {
+            manageCart.insertItem(context, item)
         }
     }
 

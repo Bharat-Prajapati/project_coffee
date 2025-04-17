@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.coffieshop.Domains.ItemsModel
+import com.example.coffieshop.Helper.ManageCart
 import com.example.coffieshop.R
 import com.example.coffieshop.databinding.ActivityDetailBinding
 import java.io.Serializable
@@ -17,6 +18,8 @@ class DetailActivity : AppCompatActivity() {
     private val binding: ActivityDetailBinding by lazy {
         ActivityDetailBinding.inflate(layoutInflater)
     }
+
+    private val manageCart = ManageCart()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +64,9 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-
+        binding.addToCart.setOnClickListener {
+            manageCart.insertItem(this, item!!)
+        }
     }
 
     private fun initSizeList() {

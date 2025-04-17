@@ -3,6 +3,7 @@ package com.example.coffieshop.Domains
 import java.io.Serializable
 
 data class ItemsModel(
+    val id: String? = null,
     val title: String = "",
     val description: String = "",
     val picUrl: ArrayList<String> = ArrayList(),

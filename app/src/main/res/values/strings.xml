@@ -17,4 +17,5 @@
     <string name="description">Description</string>
     <string name="add_to_cart">Add to Cart</string>
     <string name="_0">$0</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
 </resources>
