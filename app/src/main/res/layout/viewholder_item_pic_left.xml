@@ -14,10 +14,9 @@
         android:id="@+id/coffeePhoto"
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
         android:scaleType="centerCrop"
         android:src="@drawable/settings"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -31,7 +30,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/coffeePhoto"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <RatingBar
         android:id="@+id/ratingBar"

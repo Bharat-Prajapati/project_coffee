@@ -36,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         initCategory()
         initPopCoffees()
         initBottom()
+
+        binding.searchCoffee.setOnClickListener {
+            val searchIntent = Intent(this, SearchActivity::class.java)
+            startActivity(searchIntent)
+        }
     }
 
     private fun initBottom() {
